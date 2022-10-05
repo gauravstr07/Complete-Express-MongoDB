@@ -5,6 +5,7 @@ const database = "e-comm";
 
 const client = new MongoClient(url);
 
+
 //Getting data from MongoDB
 async function dbConnect() {
   try {
