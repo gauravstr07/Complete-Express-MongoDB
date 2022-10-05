@@ -1,10 +1,7 @@
 const { MongoClient } = require("mongodb");
-
 const url = "mongodb://localhost:27017/e-comm";
 const database = "e-comm";
-
 const client = new MongoClient(url);
-
 
 //Getting data from MongoDB
 async function dbConnect() {

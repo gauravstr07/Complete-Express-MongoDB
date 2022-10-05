@@ -12,7 +12,7 @@ const insert = async () => {
       category: "Mobile",
     },
     {
-        name: "note 5",
+        name: "note 6",
         brand: "samsung",
         price: 1800,
         category: "Mobile",
