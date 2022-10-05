@@ -5,16 +5,31 @@ const database = "e-comm";
 
 const client = new MongoClient(url);
 
-async function getData() {
+//Getting data from MongoDB
+async function dbConnect() {
   try {
     let result = await client.connect();
     let db = result.db(database);
-    let collection = db.collection("products");
-    let response = await collection.find({}).toArray();
-    console.log(response);
+    return db.collection("products");
+    // let response = await collection.find({}).toArray();
+    // console.log(response);
   } catch (error) {
     console.log("😥" + error);
   }
 }
 
-getData();
+dbConnect()
+  .then((result) => {
+    result
+      .find()
+      .toArray()
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
