@@ -11,25 +11,17 @@ async function dbConnect() {
     let result = await client.connect();
     let db = result.db(database);
     return db.collection("products");
-    // let response = await collection.find({}).toArray();
-    // console.log(response);
   } catch (error) {
     console.log("😥" + error);
   }
 }
 
-dbConnect()
-  .then((result) => {
-    result
-      .find()
-      .toArray()
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+const main = async () => {
+  console.log("Main func called");
+
+  let data = await dbConnect();
+  data = await data.find().toArray();
+  console.log(data);
+};
+
+main();
